@@ -1,0 +1,12 @@
+div {
+    border: black;
+    border-style: dashed;
+    border-top: white;
+    border-left: white;
+    border-right: white;
+    margin-right: 37cm;
+}
+
+.close {
+    color: tomato;
+  }
