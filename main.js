@@ -1,7 +1,3 @@
-var addBtn = document.getElementById("add")
-var delBtn = document.getElementById("delete")
-var orgBtn = document.getElementById("organize")
-
 function addFriend() {
   var textField = document.getElementById("txtfield").value;
   var li = document.createElement("li");
@@ -19,7 +15,7 @@ var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
+  var txt = document.createTextNode(" X");
   span.className = "close";
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
@@ -32,4 +28,27 @@ for (i = 0; i < close.length; i++) {
     div.style.display = "none";
   }
 }
+}
+
+function sortList() {
+  var list, i, switching, b, shouldSwitch;
+  list = document.getElementById("list");
+  switching = true;
+
+  while (switching) {
+    switching = false;
+    b = list.getElementsByTagName("LI");
+
+    for (i = 0; i < (b.length - 1); i++) {
+      shouldSwitch = false;
+      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      b[i].parentNode.insertBefore(b[i + 1], b[i]);
+      switching = true;
+    }
+  }
 }
